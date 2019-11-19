@@ -22,8 +22,7 @@ jobs:
         sudo apt-get install docker
         pip install fabric
         pip install fabricio
-        fab -l
-        fab -P nginx selenium
+        fab -P nginx.deploy selenium.deploy
     - name: Lint with flake8
       run: |
         pip install flake8
