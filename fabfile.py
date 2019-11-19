@@ -1,8 +1,8 @@
 from fabricio import docker, tasks
 
-app = tasks.DockerTasks(
+nginx = tasks.DockerTasks(
     service=docker.Container(
-        name='app',
+        name='nginx',
         image='nginx',
         options={
             'publish': '80:80',
