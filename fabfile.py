@@ -8,7 +8,7 @@ from fabricio.misc import AvailableVagrantHosts
 
 fab.env.roledefs.update(
     # you can set default roles definitions here
-    web=[],
+    web=['localhost'],
 )
 
 @fabricio.infrastructure(color=colors.red)
@@ -20,7 +20,7 @@ def vagrant():
     )
 
 @fabricio.infrastructure
-def localhost(force_local=False):
+def localhost(force_local=True):
     if utils.strtobool(force_local):
         # replace fabricio.run by fabricio.local to run all commands locally
         fabricio.run = functools.partial(fabricio.local, capture=True)
