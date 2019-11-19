@@ -8,6 +8,7 @@ nginx = tasks.DockerTasks(
             'publish': '80:80',
         },
     ),
+	hosts=['localhost']
 )
 
 selenium = tasks.DockerTasks(
@@ -18,4 +19,5 @@ selenium = tasks.DockerTasks(
             'publish': '4444:4444',
         },
     ),
+	hosts=['localhost']
 )
