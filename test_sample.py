@@ -1,11 +1,14 @@
 import unittest
-from selenium.remote.webdriver import WebDriver
+from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 class TestSample(unittest.TestCase):
 
     def setUp(self):
-        self.driver = WebDriver('http://localhost:4444/wd/hub', 'chrome', 'ANY')
+        self.driver = webdriver.Remote(
+            esired_capabilities=webdriver.DesiredCapabilities.CHROME,
+            command_executor='http://localhost:4444/wd/hub'
+        )
 
     def test_sample(self):
         driver = self.driver
