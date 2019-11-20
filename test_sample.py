@@ -13,7 +13,7 @@ class TestSample(unittest.TestCase):
     def test_sample(self):
         driver = self.driver
         driver.get("http://nginx")
-        print driver.page_source
+        print(driver.page_source)
         self.assertIn("Welcome to nginx!", driver.title)
 
     def tearDown(self):
