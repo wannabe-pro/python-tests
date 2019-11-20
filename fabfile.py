@@ -40,6 +40,7 @@ app = tasks.DockerTasks(
         image='nginx',
         options={
             'publish': '80:80',
+            'network': 'bridge'
         },
     ),
     roles=['web'],
@@ -59,7 +60,7 @@ selenium = tasks.DockerTasks(
         image='selenium/standalone-chrome',
         options={
             'publish': '4444:4444',
-            'link': 'app'
+            'network': 'bridge'
         },
     ),
     roles=['web'],
