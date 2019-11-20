@@ -19,7 +19,7 @@ def vagrant():
         },
     )
 
-@fabricio.infrastructure
+@fabricio.infrastructure(default=true)
 def localhost(force_local=True):
     if utils.strtobool(force_local):
         # replace fabricio.run by fabricio.local to run all commands locally
