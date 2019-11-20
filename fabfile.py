@@ -35,7 +35,7 @@ def localhost(force_local=True):
     )
 
 app = tasks.DockerTasks(
-    service=docker.Stack(
+    service=docker.Container(
         name='app',
         image='nginx',
         options={
