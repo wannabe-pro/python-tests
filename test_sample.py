@@ -1,7 +1,6 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.common.keys import Keys
 
 class TestSample(unittest.TestCase):
 
@@ -12,9 +11,9 @@ class TestSample(unittest.TestCase):
         )
 
     def test_sample(self):
-        driver = self.driver
-        driver.get("http://nginx")
-        self.assertIn("Welcome to nginx!", driver.title)
+        self.driver.get("http://nginx")
+        print  self.driver.page_source
+        self.assertIn("Welcome to nginx!", self.driver.title)
 
     def tearDown(self):
         self.driver.close()
