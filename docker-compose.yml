@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    networks:
+      - backend
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    networks:
+      - backend
+
+networks:
+  backend:

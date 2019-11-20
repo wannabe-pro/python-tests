@@ -34,33 +34,11 @@ def localhost(force_local=True):
         },
     )
 
-app = tasks.DockerTasks(
-    service=docker.Container(
-        name='app',
-        image='nginx',
+docker = tasks.DockerTasks(
+    service=docker.Stack(
+        name='docker',
         options={
-            'publish': '80:80',
-            'network': 'bridge'
-        },
-    ),
-    roles=['web'],
-    
-    # rollback_command=True,  # show `rollback` command in the list
-    # migrate_commands=True,  # show `migrate` and `migrate-back` commands in the list
-    # backup_commands=True,  # show `backup` and `restore` commands in the list
-    # pull_command=True,  # show `pull` command in the list
-    # update_command=True,  # show `update` command in the list
-    # revert_command=True,  # show `revert` command in the list
-    # destroy_command=True,  # show `destroy` command in the list
-)
-
-selenium = tasks.DockerTasks(
-    service=docker.Container(
-        name='selenium',
-        image='selenium/standalone-chrome',
-        options={
-            'publish': '4444:4444',
-            'network': 'bridge'
+            'compose-file': 'docker-compose.yml',
         },
     ),
     roles=['web'],
