@@ -11,9 +11,10 @@ class TestSample(unittest.TestCase):
         )
 
     def test_sample(self):
-        self.driver.get("http://nginx")
-        print  self.driver.page_source
-        self.assertIn("Welcome to nginx!", self.driver.title)
+        driver = self.driver
+        driver.get("http://nginx")
+        print driver.page_source
+        self.assertIn("Welcome to nginx!", driver.title)
 
     def tearDown(self):
         self.driver.close()
