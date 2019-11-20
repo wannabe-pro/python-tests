@@ -20,9 +20,8 @@ jobs:
     - name: Deploy containers
       run: |
         sudo apt-get install docker
-        pip install fabric
-        pip install fabricio
-        yes | fab localhost:force_local=yes docker
+        pip install docker-compose
+        docker-compose up -d
     - name: Lint with flake8
       run: |
         pip install flake8
