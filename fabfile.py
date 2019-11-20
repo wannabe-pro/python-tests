@@ -34,12 +34,12 @@ def localhost(force_local=True):
         },
     )
 
-nginx = tasks.DockerTasks(
+app = tasks.DockerTasks(
     service=docker.Container(
-        name='nginx',
+        name='app',
         image='nginx',
         options={
-            'publish': '8080:80',
+            'publish': '80:80',
         },
     ),
 	roles=['web'],

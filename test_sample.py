@@ -12,7 +12,7 @@ class TestSample(unittest.TestCase):
 
     def test_sample(self):
         driver = self.driver
-        driver.get("http://nginx:8080")
+        driver.get("http://app")
         print(driver.page_source)
         self.assertIn("Welcome to nginx!", driver.title)
 
