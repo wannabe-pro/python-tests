@@ -39,7 +39,7 @@ nginx = tasks.DockerTasks(
         name='nginx',
         image='nginx',
         options={
-            'publish': '80:80',
+            'publish': '8080:80',
         },
     ),
 	roles=['web'],
