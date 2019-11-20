@@ -6,7 +6,7 @@ class TestSample(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Remote(
-            esired_capabilities=webdriver.DesiredCapabilities.CHROME,
+            browser_name="chrome",
             command_executor='http://localhost:4444/wd/hub'
         )
 
