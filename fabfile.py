@@ -35,15 +35,15 @@ def localhost(force_local=True):
     )
 
 app = tasks.DockerTasks(
-    service=docker.Container(
+    service=docker.Stack(
         name='app',
         image='nginx',
         options={
             'publish': '80:80',
         },
     ),
-	roles=['web'],
-	
+    roles=['web'],
+    
     # rollback_command=True,  # show `rollback` command in the list
     # migrate_commands=True,  # show `migrate` and `migrate-back` commands in the list
     # backup_commands=True,  # show `backup` and `restore` commands in the list
@@ -59,10 +59,11 @@ selenium = tasks.DockerTasks(
         image='selenium/standalone-chrome',
         options={
             'publish': '4444:4444',
+            'link': 'app'
         },
     ),
-	roles=['web'],
-	
+    roles=['web'],
+    
     # rollback_command=True,  # show `rollback` command in the list
     # migrate_commands=True,  # show `migrate` and `migrate-back` commands in the list
     # backup_commands=True,  # show `backup` and `restore` commands in the list
