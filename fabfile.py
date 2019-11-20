@@ -19,14 +19,14 @@ def vagrant():
         },
     )
 
-@fabricio.infrastructure(default=true)
+@fabricio.infrastructure()
 def localhost(force_local=True):
     if utils.strtobool(force_local):
         # replace fabricio.run by fabricio.local to run all commands locally
         fabricio.run = functools.partial(fabricio.local, capture=True)
 
         # uncomment row below to skip file uploading (e.g. docker-compose.yml)
-        # fab.put = lambda *args, **kwargs: None
+        fab.put = lambda *args, **kwargs: None
 
     fab.env.update(
         roledefs={
