@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+  # Веб-сервер который будем тестирвоать.
   nginx:
     image: nginx
     ports:
@@ -8,6 +9,7 @@ services:
     networks:
       - backend
 
+  # Веб-раузер которым будем тестировать.
   selenium:
     image: selenium/standalone-chrome
     ports:
