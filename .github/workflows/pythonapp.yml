@@ -28,6 +28,7 @@ jobs:
     - name: Deploy containers
       run: |
         docker-compose up -d
+        docker ps
 
     # Валидируем наш стиль кода.
     - name: Lint with flake8
